@@ -8,4 +8,10 @@ class Impostor inherits Jugador {
 		return true
 	}
 	
+	// -- Punto 4 -- //
+	
+	override method realizarTarea() {
+		// No hace nada
+	}
+	
 }

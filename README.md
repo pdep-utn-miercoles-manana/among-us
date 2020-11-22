@@ -29,3 +29,7 @@ Nos topamos con que los jugadores deben responder si completaron todas las tarea
 Se decidió poner la lista de tareas en la clase `Jugador` ya que el enunciado dice que los jugadores tienen tareas, pero no sería descabellado pensar en poner ese atributo directamente en la clase `Tripulante` ya que el impostor no hace nada con esas tareas.
 
 Se planteó el método abstracto `completoTodasLasTareas()` en la clase jugador para forzar que esta sea una clase abstracta y forzar que quien herede de ella implemente ese método.
+
+### Punto 4
+
+El hecho que las tareas **no tengan estado mutable** hace que puedan ser modeladas como objetos. Esto también posibilita que las tareas se repitan entre los jugadores pero no hay problema ya que cuando terminamos una tarea la removemos de la lista de tareas del jugador.
