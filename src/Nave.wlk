@@ -1,6 +1,8 @@
 object nave {
 	
 	var nivelOxigeno
+	var cantidadImpostoresEnNave = 2
+	var cantidadTripulantesEnNave = 8
 	
 	const jugadores = #{}
 	
@@ -8,7 +10,7 @@ object nave {
 	
 	method tareaCompletada() {
 		if (self.completaronTodasLasTareas()) {
-			throw new Exception(message = "Tripulantes ganan")
+			self.throwTripulantesGanan()
 		}
 	}
 		
@@ -29,8 +31,49 @@ object nave {
 	method disminuirNivelOxigeno(unaCantidad) {
 		nivelOxigeno -= unaCantidad
 		if (nivelOxigeno <= 0) {
-			throw new Exception(message = "Impostores ganan")
+			self.throwImpostoresGanan()
+		}
+	}
+
+	// -- Punto 6 -- //
+	
+	method reunionDeEmergencia() {
+		self.jugadorMasVotado().expulsar()
+		self.verificarJuegoTerminado()
+	}
+	
+	method jugadorMasVotado() {
+		const votados = self.jugadoresEnNave().map { jugador => jugador.votarEntre(self.jugadoresEnNave()) }
+		return votados.max { jugador => votados.occurrencesOf(jugador) }
+	}
+	
+	method jugadoresEnNave() {
+		return jugadores.filter { jugador => jugador.estaExpulsado().negate() }
+	}
+	
+	method perderTripulante() {
+		cantidadTripulantesEnNave--
+	}
+
+	method perderImpostor() {
+		cantidadImpostoresEnNave--
+	}
+	
+	method verificarJuegoTerminado() {
+		if (cantidadImpostoresEnNave == cantidadTripulantesEnNave) {
+			self.throwImpostoresGanan()
+		}
+		if (cantidadImpostoresEnNave == 0) {
+			self.throwTripulantesGanan()
 		}
 	}
 	
+	method throwImpostoresGanan() {
+		throw new Exception(message = "Impostores ganan")
+	}
+
+	method throwTripulantesGanan() {
+		throw new Exception(message = "Tripulantes ganan")
+	}
+
 }

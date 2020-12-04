@@ -38,3 +38,8 @@ El hecho que las tareas **no tengan estado mutable** hace que puedan ser modelad
 
 A diferencia de las tareas, el sabotaje lo recibimos por parámetro. Se modelo la reducción de oxígeno como un objeto porque no tiene estado pese a que no habría problema en plantearlo como clase. La impugnación de un voto sí es una clase debido a que la víctima es propia de cada instancia de ese saqueo.
 La impugnación de la persona se optó porque sea modelada con un booleano ya que, por el momento, es la forma más simple de modelarlo.
+
+### Punto 6
+
+La votación no está modelada como una entidad del sistema debido a que no cobra mucho sentido. 
+Las personalidades estan modeladas con composición aunque podría modelarse como una herancia ya que el enunciado no dice nada de que cambie de personalidad.
