@@ -33,3 +33,8 @@ Se planteó el método abstracto `completoTodasLasTareas()` en la clase jugador 
 ### Punto 4
 
 El hecho que las tareas **no tengan estado mutable** hace que puedan ser modeladas como objetos. Esto también posibilita que las tareas se repitan entre los jugadores pero no hay problema ya que cuando terminamos una tarea la removemos de la lista de tareas del jugador.
+
+### Punto 5
+
+A diferencia de las tareas, el sabotaje lo recibimos por parámetro. Se modelo la reducción de oxígeno como un objeto porque no tiene estado pese a que no habría problema en plantearlo como clase. La impugnación de un voto sí es una clase debido a que la víctima es propia de cada instancia de ese saqueo.
+La impugnación de la persona se optó porque sea modelada con un booleano ya que, por el momento, es la forma más simple de modelarlo.

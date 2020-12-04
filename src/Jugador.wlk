@@ -1,9 +1,11 @@
 class Jugador {
 	
 	var nivelSospecha = 40
+	var estaImpugnado = false
 	
 	const mochila = []
 	const tareas = #{}
+
 
 	// -- Punto 1 -- //
 	
@@ -43,6 +45,12 @@ class Jugador {
 	
 	method usarItems(unosItems) {
 		return mochila.removeAll(unosItems)
+	}
+	
+	// -- Punto 5 -- //
+	
+	method impugnate() {
+		estaImpugnado = true
 	}
 	
 }

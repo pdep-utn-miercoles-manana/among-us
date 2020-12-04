@@ -20,4 +20,17 @@ object nave {
 		nivelOxigeno += unaCantidad
 	}
 	
+	// -- Punto 5 -- //
+	
+	method alguienTiene(unItem) {
+		return jugadores.any { jugador => jugador.tieneItem(unItem) }
+	}
+	
+	method disminuirNivelOxigeno(unaCantidad) {
+		nivelOxigeno -= unaCantidad
+		if (nivelOxigeno <= 0) {
+			throw new Exception(message = "Impostores ganan")
+		}
+	}
+	
 }
